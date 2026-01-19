@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Все уроки{% endblock %}
+
+{% block content %}
+    <div class="hero-section">
+        <h2>Научись программированию на Python с нуля</h2>
+        <p class="subtitle">Простой и понятный язык для старта в IT</p>
+    </div>
+    
+    <ul class="lesson-list">
+        {% for id, lesson in lessons.items() %}
+            <li><a href="{{ url_for('lesson', lesson_id=id) }}">{{ lesson.title }}</a> <span class="author"> — {{ lesson.author }}</span></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
